@@ -1,5 +1,7 @@
 import { GetConfig, RitaConfig } from "./config";
 import { EnventIdResponse, GetResponse, RitaEvent } from "./response";
+import {ReadableStream} from "node:stream/web"
+
 const querystring = require('querystring');
 
 type errorNames = 
@@ -192,18 +194,24 @@ export class Rita {
                     keepalive: true,
                }
             )
-
+            
             switch(res.status){
-                case 200:                         
-                    const st = res.body
-                        .pipeThrough( new TextDecoderStream() )
-                        .pipeThrough( this.#RitaEventStream<T>(isSubcribe) )    
+                case 200:              
+                    if( res.body ){
+                        const st = res.body
+                            .pipeThrough( new TextDecoderStream() )
+                            .pipeThrough( this.#RitaEventStream<T>(isSubcribe) ) 
 
-                    return {
-                        error: null,
-                        stream: st,
-                        abortController: abortController
-                    }                                      
+                                               
+
+                        return {
+                            error: null,
+                            stream: st as ReadableStream<RitaEvent<T>>,
+                            abortController: abortController
+                        }                  
+                    }else{
+                        return this.#sendGetError( this.errorMessages["unknownError"] )
+                    }                                        
                     break;
                 case 400:
                     return this.#sendGetError( this.errorMessages["jsonNotValid"] )

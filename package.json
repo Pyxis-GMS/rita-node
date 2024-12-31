@@ -1,6 +1,6 @@
 {
     "name": "rita-node",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Herramientas para utilizar RITA en nodejs",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -16,6 +16,6 @@
     },
     "devDependencies": {
         "ts-node": "^10.9.2",
-        "typescript": "^5.7.2"
+        "typescript": "^5.4.3"
     }
 }

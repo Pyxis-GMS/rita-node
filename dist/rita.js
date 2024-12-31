@@ -161,14 +161,19 @@ class Rita {
             });
             switch (res.status) {
                 case 200:
-                    const st = res.body
-                        .pipeThrough(new TextDecoderStream())
-                        .pipeThrough(__classPrivateFieldGet(this, _Rita_instances, "m", _Rita_RitaEventStream).call(this, isSubcribe));
-                    return {
-                        error: null,
-                        stream: st,
-                        abortController: abortController
-                    };
+                    if (res.body) {
+                        const st = res.body
+                            .pipeThrough(new TextDecoderStream())
+                            .pipeThrough(__classPrivateFieldGet(this, _Rita_instances, "m", _Rita_RitaEventStream).call(this, isSubcribe));
+                        return {
+                            error: null,
+                            stream: st,
+                            abortController: abortController
+                        };
+                    }
+                    else {
+                        return __classPrivateFieldGet(this, _Rita_instances, "m", _Rita_sendGetError).call(this, this.errorMessages["unknownError"]);
+                    }
                     break;
                 case 400:
                     return __classPrivateFieldGet(this, _Rita_instances, "m", _Rita_sendGetError).call(this, this.errorMessages["jsonNotValid"]);
