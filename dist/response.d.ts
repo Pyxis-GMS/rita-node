@@ -1,3 +1,4 @@
+import { ReadableStream } from "node:stream/web";
 export type EnventIdResponse = {
     error: Error | null;
     eventId: string;

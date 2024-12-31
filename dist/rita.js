@@ -7,6 +7,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 var _Rita_instances, _Rita_createUrl, _Rita_createHeaders, _Rita_cleanChannel, _Rita_ensureCan, _Rita_makeError, _Rita_sendPostError, _Rita_sendGetError, _Rita_RitaEventStream;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Rita = void 0;
+const web_1 = require("node:stream/web");
 const querystring = require('querystring');
 class Rita {
     constructor(config) {
@@ -247,7 +248,7 @@ _Rita_instances = new WeakSet(), _Rita_createUrl = function _Rita_createUrl(chan
     }
     return {
         error: __classPrivateFieldGet(this, _Rita_instances, "m", _Rita_makeError).call(this, err),
-        stream: new ReadableStream(),
+        stream: new web_1.ReadableStream(),
         abortController: new AbortController()
     };
 }, _Rita_RitaEventStream = function _Rita_RitaEventStream(isStream) {
