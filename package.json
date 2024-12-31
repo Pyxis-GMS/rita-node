@@ -1,0 +1,21 @@
+{
+    "name": "rita-node",
+    "version": "0.1.0",
+    "description": "Herramientas para utilizar RITA en nodejs",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "author": {
+        "name": "Kriss Alner"
+    },
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
+        "test": "ts-node ./tests/test.ts",
+        "build": "npx tsc"
+    },
+    "devDependencies": {
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.2"
+    }
+}
