@@ -1,3 +1,3 @@
-export { RitaConfig } from './config';
-export { SendResponse } from './response';
+export { RitaConfig, GetConfig } from './config';
+export { EnventIdResponse } from './response';
 export { Rita } from './rita';

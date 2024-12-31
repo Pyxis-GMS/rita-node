@@ -1,5 +1,9 @@
 export type RitaConfig = {
     url: string;
     apikey: string;
-    writeInConsole: boolean;
+    logInConsole: boolean;
+};
+export type GetConfig = {
+    eventId?: string;
+    sub?: boolean;
 };
