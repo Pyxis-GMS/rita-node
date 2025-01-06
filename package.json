@@ -1,6 +1,6 @@
 {
     "name": "rita-node",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Herramientas para utilizar RITA en nodejs",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
