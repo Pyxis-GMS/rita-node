@@ -13,6 +13,8 @@ type errorNames =
 
 export class Rita {
 
+    public static readonly LAST_EVENT : string = "$"
+
     private errorMessages : Record<errorNames, string> = {
         "channelNotValid": "the channel name is not valid",
         "serverNotConfig" : "the server url is not setted",
@@ -156,7 +158,7 @@ export class Rita {
      *  }
      * }
      */
-    async GetEvent<T>(channel : string, config?: GetConfig ) : Promise<GetResponse<T>> {         
+    async GetEvents<T>(channel : string, config?: GetConfig ) : Promise<GetResponse<T>> {         
         try{
             channel = this.#ensureCan(channel)
 

@@ -2,6 +2,7 @@ import { GetConfig, RitaConfig } from "./config";
 import { EnventIdResponse, GetResponse } from "./response";
 export declare class Rita {
     #private;
+    static readonly LAST_EVENT: string;
     private errorMessages;
     private URL_EVENT_SEND;
     private URL_EVENT_SUB;
@@ -57,5 +58,5 @@ export declare class Rita {
      *  }
      * }
      */
-    GetEvent<T>(channel: string, config?: GetConfig): Promise<GetResponse<T>>;
+    GetEvents<T>(channel: string, config?: GetConfig): Promise<GetResponse<T>>;
 }

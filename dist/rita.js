@@ -133,7 +133,7 @@ class Rita {
      *  }
      * }
      */
-    async GetEvent(channel, config) {
+    async GetEvents(channel, config) {
         try {
             channel = __classPrivateFieldGet(this, _Rita_instances, "m", _Rita_ensureCan).call(this, channel);
             let isSubcribe = false;
@@ -278,3 +278,4 @@ _Rita_instances = new WeakSet(), _Rita_createUrl = function _Rita_createUrl(chan
         }
     });
 };
+Rita.LAST_EVENT = "$";
